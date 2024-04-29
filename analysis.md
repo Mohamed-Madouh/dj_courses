@@ -1,0 +1,33 @@
+courses
+  -rodmapimages
+  titel
+  -catogory
+  -courseimage
+  -coursesname
+  -coursedouctor
+  -doctordev
+  -subtitel
+  -rate
+  -vediourl
+  -urlcours
+catagory 
+  -name 
+  -image
+  -story(paid,free)
+profile 
+  -username
+  -secshan
+  -email
+  -address
+  -dateofbirth
+UserPhoneNumber
+  -user(foreigkey)
+  -number
+  -type
+
+media 
+  -facbook
+  -githap
+  -x
+  -linkedin
+  -emil
