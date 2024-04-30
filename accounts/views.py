@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from .forms import Signupform,UpdateProfileForm,UpdateUserform
+from .forms import Signupform,UpdateProfileForm,UpdateUserform,prfileform
 from .models import profile,UserPhoneNumber,Social_media
 
 
@@ -12,19 +12,29 @@ def signup(request):
     if request.method == 'POST':
         form = Signupform(request.POST)
         if form.is_valid():
-            form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             eemail = form.cleaned_data.get('email')
-            user = Signupform(username=username, password=raw_password,email=eemail)
-            login(request, user)
-            return redirect('profile.html')  # Redirect to the home page after successful signup
+            User = Signupform(username=username, password=raw_password,email=eemail)
+            User=form.save()
+            login(request, User)
+            return redirect('home')  # Redirect to the home page after successful signup
     else:
         form = Signupform()
     
-    return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'registration/profile.html', {'form': form})
 
 
+def profle(request):
+    Profile = profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = prfileform(request.POST, request.FILES, instance=Profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = prfileform(instance=Profile)
+    return render(request, 'registration/profile.html', {'form': form})
 
 
 def profilee(request): 

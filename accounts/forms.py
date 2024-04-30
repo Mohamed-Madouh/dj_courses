@@ -25,7 +25,10 @@ class Signupform(UserCreationForm,UserChangeForm):
         model = User
         fields = ['username','email','password1','password2','phone','dateofbirthday']
         
-
+class prfileform (forms.ModelForm):
+    class Mate:
+        model = profile
+        fields =['image','department','address','dateofbirthday']
 
      
                

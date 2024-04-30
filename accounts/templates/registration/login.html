@@ -23,7 +23,7 @@
         <h2>
             WELCOME BACK
         </h2>
-        <P>Dont Have On Account? <span class="mm"><a href="#">Sign Up</a>
+        <P>Dont Have On Account? <span class="mm"><a href="{% url 'signup' %}">Sign Up</a>
         </span></P>
         {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
@@ -83,6 +83,7 @@
  
 
 
-    {% url "signup" %}
+   
 </body>
+
 </html>
