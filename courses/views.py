@@ -9,4 +9,4 @@ class productdetail(DetailView):
     model = courses
 def courses_list(request):
     sections = Section.objects.all()
-    return render(request, 'home.html', {'sections': sections})
+    return render(request, 'registration/home.html', {'sections': sections})

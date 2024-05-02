@@ -1,48 +1,112 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from .forms import Signupform,UpdateProfileForm,UpdateUserform,prfileform
-from .models import profile,UserPhoneNumber,Social_media
+from .forms import SignupForm, UserPhoneNumberForm, SocialMediaForm,UpdateProfileForm,UpdateUserform
+from .models import profile, UserPhoneNumber, Social_media
+
+
 
 
 # Create your views here.
 
 
 
+# def signup(request):
+#     if request.method == 'POST':
+#         form = Signupform(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             eemail = form.cleaned_data.get('email')
+#             User = Signupform(username=username, password=raw_password,email=eemail)
+#             User=form.save()
+#             login(request, User)
+#             return redirect('home')  # Redirect to the home page after successful signup
+#     else:
+#         form = Signupform()
+    
+#     return render(request, 'registration/signup.html', {'form': form})
+
+
+# def profle(request):
+#     Profile = profile.objects.get(user=request.user)
+#     if request.method == 'POST':
+#         form = prfileform(request.POST, request.FILES, instance=Profile)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form = prfileform(instance=Profile)
+#     return render(request, 'registration/profile.html', {'form': form})
+
+
+# def profilee(request): 
+#     profilee = profile.objects.get(user = request.user)
+#     User_Social = Social_media.objects.filter(user=request.user)
+#     PhoneNumber = UserPhoneNumber.objects.filter(user=request.user)
+#     return render(request,'registration/profile.html',{'Profile':profilee ,'User_Social':User_Social ,'PhoneNumber':PhoneNumber})
+ 
+
+
+
+
+
+
+
 def signup(request):
     if request.method == 'POST':
-        form = Signupform(request.POST)
+        form = SignupForm(request.POST, request.FILES)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            eemail = form.cleaned_data.get('email')
-            User = Signupform(username=username, password=raw_password,email=eemail)
-            User=form.save()
-            login(request, User)
-            return redirect('home')  # Redirect to the home page after successful signup
-    else:
-        form = Signupform()
-    
-    return render(request, 'registration/profile.html', {'form': form})
+            user = form.save()
+            user_profile = profile(user=user)
+            user_profile.image = form.cleaned_data['image']
+            user_profile.department = form.cleaned_data['department']
+            user_profile.address = form.cleaned_data['address']
+            user_profile.dateofbirthday = form.cleaned_data['dateofbirthday']
+            user_profile.save()
 
+            phone_number_form = UserPhoneNumberForm(request.POST)
+            if phone_number_form.is_valid():
+                phone_number = phone_number_form.save(commit=False)
+                phone_number.user = user
+                phone_number.save()
 
-def profle(request):
-    Profile = profile.objects.get(user=request.user)
-    if request.method == 'POST':
-        form = prfileform(request.POST, request.FILES, instance=Profile)
-        if form.is_valid():
-            form.save()
+            social_media_form = SocialMediaForm(request.POST)
+            if social_media_form.is_valid():
+                social_media = social_media_form.save(commit=False)
+                social_media.user = user
+                social_media.save()
+
             return redirect('profile')
     else:
-        form = prfileform(instance=Profile)
-    return render(request, 'registration/profile.html', {'form': form})
+        form = SignupForm()
+        phone_number_form = UserPhoneNumberForm()
+        social_media_form = SocialMediaForm()
+    return render(
+        request,
+        'signup.html',
+        {
+            'form': form,
+            'phone_number_form': phone_number_form,
+            'social_media_form': social_media_form
+        }
+    )
 
 
-def profilee(request): 
-    profilee = profile.objects.get(user = request.user)
-    User_Social = Social_media.objects.filter(user=request.user)
-    PhoneNumber = UserPhoneNumber.objects.filter(user=request.user)
-    return render(request,'registration/profile.html',{'Profile':profilee ,'User_Social':User_Social ,'PhoneNumber':PhoneNumber})
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
 def profile_edit(request):
   	#Get the profile
