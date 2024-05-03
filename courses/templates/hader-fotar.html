@@ -9,8 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>course page</title>
 {% block myhome %}
-<link rel="stylesheet" href={% static 'style.css' %}>
-<link rel="stylesheet" href={% static 'aaa.css' %}>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'aaa.css' %}">
 {% endblock myhome %}
 
 
@@ -124,7 +124,7 @@ window.addEventListener("scroll", function() {
   
 <section class="header">
   <nav>
-    <a href="shokry/shokry.html"><img  id="img" src="images/logo black.png"></a>
+    <a href="shokry/shokry.html"><img  id="img" src="{% static 'images/logo black.png'  %}"></a>
     <div class="input-box col-4" >
         <i class="uil uil-search"></i>
         <input type="text" placeholder="Search for more courses" />
@@ -180,7 +180,7 @@ window.addEventListener("scroll", function() {
         <div class="footer-border-bottom pb-0 mb-0">
           <div class="row">
             <div class="col-lg-2 col-xl-1">
-              <a href="index.html"><img src="images/logo white.png"></a>
+              <a href="index.html"><img src=" {% static 'images/logo white.png' %}"></a>
               <h4 class="text-white">
                 point
               </h4>

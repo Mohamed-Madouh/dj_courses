@@ -27,9 +27,10 @@ class courses(models.Model):
 class course_content(models.Model):
     doctorname=models.CharField(_("doctor_name"), max_length=60)
     department=models.CharField(_("Department"), max_length=50)
-    subtitel=models.CharField(_("about"),max_length=300)
+    subtitelcourse=models.TextField(_("about"),max_length=300)
+    subtiteldoc=models.TextField(_("about"),max_length=300)
     vediourl=models.URLField(null=True,blank=True)
     urlcourses=models.URLField(null=True,blank=True)
-    
+    image = models.ImageField(_("userimage"),upload_to='doctor_image' , null=True ,blank=True)
     def __str__(self):
         return self.doctorname

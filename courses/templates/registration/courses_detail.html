@@ -1,0 +1,41 @@
+{% extends "hader-fotar.html" %}
+{% block bady %}
+    <section class="text-box">
+
+        <div class="container1">
+            <h1> </h1>
+            <p>
+            <video width="700" height="395" controls>
+                <source src="video/111.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+ 
+    <main id="overview">
+        <b><h5 class="title" >OVERVIEW</h5></b> 
+        <div class="main-title   position-relative">
+    
+        </div>
+        <hr class="separator">
+        <div class="article">
+        <h2>About this course</h2>
+        <p>{{course_content.subtitel}}</p>
+
+    
+
+        <hr class="separator">
+        <div class="article">
+            <div class="avatar avatar-lg rounded">
+                <img src="{{course_content.image.url}}" title="" alt="">
+            </div>
+            <h2>{{course_content.doctorname}}</h2>
+            <h4> {{course_content.department}}</h4>
+            <p>{{course_content.subtiteldoc}}</p>
+        </div>
+        <hr class="separator">
+        <div class="article">
+            <h2>Course  Link</h2>
+            <p><b><li><a href=>{{course_content.urlcourses}}</a></li></b></p>
+        </div>
+{% endblock bady %}
