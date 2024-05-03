@@ -27,8 +27,8 @@ class courses(models.Model):
 class course_content(models.Model):
     doctorname=models.CharField(_("doctor_name"), max_length=60)
     department=models.CharField(_("Department"), max_length=50)
-    subtitelcourse=models.TextField(_("about"),max_length=300)
-    subtiteldoc=models.TextField(_("about"),max_length=300)
+    subtitel=models.TextField(_("about"),max_length=300,null=True,blank=True)
+    subtitell=models.TextField(_("doc"),max_length=300, null=True,blank=True)
     vediourl=models.URLField(null=True,blank=True)
     urlcourses=models.URLField(null=True,blank=True)
     image = models.ImageField(_("userimage"),upload_to='doctor_image' , null=True ,blank=True)
