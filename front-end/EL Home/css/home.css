@@ -43,7 +43,7 @@ body {
   font-weight: var(--fa-style, 900); }
 
 .header{
-    min-height:100vh;
+    min-height:10px;
     width:100%;
     background-color: #dbdbdb;
     background-position:center;

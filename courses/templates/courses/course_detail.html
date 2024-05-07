@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block bady %}
+
+
+<section class="text-box">
+    <div class="container1">
+      <h1> </h1>
+      <p><video width="700" height="395" controls>
+        <a href="{{course.vediourl}}"></a>
+      </video>
+      </div>
+</section>
+
+ 
+    <main id="overview">
+  <b><h5 class="title" >OVERVIEW</h5></b> 
+  <div class="main-title   position-relative">
+    
+</div>
+  <hr class="separator">
+  <div class="article">
+    <h2>About this course</h2>
+    <p> {{course.subtitel}} m</p>
+
+  <hr class="separator">
+  <div class="article">
+    <div class="avatar avatar-lg rounded">
+        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
+  </div>
+    <h2>{{course.doctorname}}</h2>
+    <h4>{{course.Department}}</h4>
+    <p>{{course.subtitell}}</p>
+  </div>
+  <hr class="separator">
+  <div class="article">
+    <h2>Course  Link</h2>
+<p><b><li><a href=" {{course.urlcourses}}">{{ course.name }}</a></li></b></p>
+</div>
+</main>
+{% endblock bady %}

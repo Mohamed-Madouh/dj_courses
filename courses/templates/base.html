@@ -8,10 +8,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>course page</title>
-{% block myhome %}
-<link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="{% static 'aaa.css' %}">
-{% endblock myhome %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+
 
 
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -124,7 +124,7 @@ window.addEventListener("scroll", function() {
   
 <section class="header">
   <nav>
-    <a href="shokry/shokry.html"><img  id="img" src="{% static 'images/logo black.png'  %}"></a>
+    <a href="shokry/shokry.html"><img  id="img" src="{% static 'images/logo black.png' %}"></a>
     <div class="input-box col-4" >
         <i class="uil uil-search"></i>
         <input type="text" placeholder="Search for more courses" />
@@ -164,7 +164,7 @@ window.addEventListener("scroll", function() {
      
       </div>
   </nav>
-
+</section>
 {% block bady %}
 
 {% endblock bady %}

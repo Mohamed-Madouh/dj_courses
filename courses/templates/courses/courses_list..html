@@ -1,15 +1,10 @@
 {% extends "hader-fotar.html" %}
 {% load static %}
 {% block bady %}
-
 {% block myhome %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <script src="{% static 'js/script.js' %}"defer></script>
 {% endblock myhome %}
-
-
-
-
     <section>
         <div class="container">
             <div class="slider-wrapper">
@@ -17,19 +12,16 @@
                 chevron_left
               </button>
               <ul class="image-list">
-class courses(models.Model):
                 <img class="image-item" src=" {% static 'images/1.png' %}" alt="img-1" />
                 <img class="image-item" src="{% static 'images/1.png' %}"  alt="img-2" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-3" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-4" />
-               <img class="image-item" src="{% static 'images/1.png' %}" alt="img-5" />
+                <img class="image-item" src="{% static 'images/1.png' %}" alt="img-5" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-6" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-7" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-8" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-9" />
                 <img class="image-item" src="{% static 'images/1.png' %}" alt="img-10" />
-
-                
               </ul>
               <button id="next-slide" class="slide-button material-icons">
                 chevron_right
@@ -60,33 +52,24 @@ class courses(models.Model):
                         <div class="videos-container">
                             <div class="video">
                                 <div class="thumbnail"> 
-                                    {% if courses.image %}
-                                        <img src="{{courses.image.url}}"alt="My Image">
-                                    {% else %}
-                                        <p>لا توجد صورة متاحة.</p>
-                                    {% endif %}
-                                                            
-    
+                                    <img src="{{courses.image.url}}" />
                                 </div>
-                        
                                 <div class="video-detils">
                           
                                     <div class="title">
-                                        <a href="" class="video-title">
-                                            {{ courses.name }}
+                                        <a href="{%url 'courses:course_detail' courses.id %}" class="video-title">
+                                            {{courses.name}}
     
                                         </a>
-                                        <a href="" class="video-creator">
+                                        <a href="{%url 'courses:course_detail' courses.id %}" class="video-creator">
                                             {{ courses.doctorname }}
     
                                          </a>
                                         <div class="cotn">
+                                            
+                                            <span text=bold >{{ courses.rate }}</span>
                                             <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x ">{{ courses.rate }}</span>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -105,27 +88,23 @@ class courses(models.Model):
                         <div class="videos-container">
                             <div class="video">
                                 <div class="thumbnail"> 
-                                    <img src="{{ courses.image.url }}" />
+                                    <img src="{{courses.image.url}}" />
                                 </div>
                         
                                 <div class="video-detils">
                           
                                     <div class="title">
-                                        <a href="" class="video-title">
+                                        <a href="{%url 'courses:course_detail' courses.id %}" class="video-title">
                                             {{ courses.name}}
     
                                         </a>
-                                        <a href="" class="video-creator">
+                                        <a href="{%url 'courses:course_detail' courses.id %}" class="video-creator">
                                             {{ courses.doctorname}}
     
                                          </a>
                                         <div class="cotn">
+                                            <span text=bold >{{ courses.rate }}</span>
                                             <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x checked"></span>
-                                            <span class="fa fa-star fa-x ">{{ courses.rate }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -142,34 +121,9 @@ class courses(models.Model):
 
    
     </section>
-    {% comment %} {%url 'products:product_detail' product.id %} {% endcomment %}
+
    
 
 
 {% endblock bady %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
