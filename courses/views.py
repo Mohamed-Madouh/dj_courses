@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import ListView ,DetailView
-from .models import Section , courses
+from .models import Section , courses,course_content
 # Create your views here.
 class productlist(ListView):
     model = courses
@@ -15,5 +15,5 @@ def courses_list(request):
 
 
 def courses_detail(request, id):
-    courses_detail =courses.objects.get(id=id) 
+    courses_detail =course_content.objects.get(id=id) 
     return render(request, 'courses/course_detail.html', {'course': courses_detail})
