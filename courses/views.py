@@ -9,7 +9,7 @@ class coursesdetail(DetailView):
     
 def courses_list(request):
     sections = Section.objects.all()
-    return render(request, 'courses/courses_list..html', {'sections': sections})
+    return render(request, 'courses/courses_list.html', {'sections': sections})
 
 
 

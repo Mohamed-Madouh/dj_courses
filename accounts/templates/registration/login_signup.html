@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+    <link rel="stylesheet" href="{% static 'css/sigup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css '%} ">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><!--الخاص بالايقونات زي علامة الفيس بوك--> 
+</head>
+
+<script>
+  function togglesearchBox(show) {
+      var searchBox = document.getElementById("searchBox");
+      if (show) {
+          searchBox.style.display = "block"; // عندما يكون الراديو محددًا على إظهار، نعرض مربع البحث
+      } else {
+        searchBox.style.display = "none";  // عندما يكون الراديو محددًا على إخفاء، نخفي مربع البحث
+      }
+  }
+</script>
+     
+<script>
+  function togglecheckBox(show) {
+      var checkBox = document.getElementById("checkBox");
+      if (show) {
+          checkBox.style.display = "block"; // عندما يكون الراديو محددًا على إظهار، نعرض مربع البحث
+      } else {
+          checkBox.style.display = "none"; // عندما يكون الراديو محددًا على إخفاء، نخفي مربع البحث
+      }
+  }
+</script>
+
+  
+<body>
+   
+    <nav>
+        
+        <a href=""><img class="img"  src="{% static 'images/logo black.png' %}"></a>
+        <div><h1>POINT </h1>
+            <h4>the easiest way to get to your point</h4>  
+        </div>
+        <img class="img1"  src="{% static 'images/point.jpg' %}" alt="">
+        {% comment %} <div  class="right">
+            <h2>Welcome To POINT</h2>
+            <div class="container">
+                <div class="tabs">
+                        <input type="radio" id="radio-2" value="" name="tabs" onchange="togglesearchBox(false) / togglecheckBox(true)">
+                        <label class="tab" for="radio-2"><b>L o g i n</b></label>
+                        <input type="radio" id="radio-3" name="tabs" onchange="togglesearchBox(true) / togglecheckBox(false)">
+                        <label class="tab" for="radio-3"><b>R e g i s t e r</b></label>
+                        <span class="glider"></span>
+
+                
+                 </div>
+            </div>
+            <h3>Find Your Fantasy.. Get To Your Dream</h3>
+            <div id="checkBox" class="item">
+                <form  method="post">
+                    {% csrf_token %}
+                
+                    <span class="la">
+                        <label>User-name</label>
+                        <br>
+                        <input class="text" type="text" placeholder="Enter your name ">
+                        <br><br><br>
+                    </span>
+                    <!---->
+         
+                    <span class="la">
+                        <label>Password</label>
+                        <br>
+                        <input class="text" type="text" placeholder="Enter your password">
+                        <button type="button"><i class="fa-solid fa-eye-slash"></i></button>
+                        <br><br><br>
+                    </span>    
+                    <!---->
+         
+                    <label class="material-checkbox">
+
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                            Rememebr me
+                        </label>
+                        <a href="{% url 'password_reset' %}" class="for">forgot password?</a>
+                        <button id="bottone1">L o g i n</button>
+
+              
+                </form>
+            </div> 
+        </div> 
+        <div  class="right">
+            <h2></h2>
+            <br>
+            <br>
+            <h3></h3>
+            <br>
+            <br>
+            <div  id="searchBox" class="item1">
+                <div class="search-box">
+                    <form method="post">
+                        {% csrf_token %}
+                        <span class="la">
+                            <label>Email Address</label>
+                            <br>
+                            <input class="text" type="text" placeholder="Enter your password">
+                            <br><br>
+                        </span>
+                        <span class="la">
+                            <label>User-name</label>
+                            <br>
+                            <input class="text" type="text" placeholder="Enter your name ">
+               
+                            <br><br><br>
+                        </span>
+                         <!---->
+                 
+                        <span class="la">
+                            <label>Password</label>
+                            <br>
+                            <input class="text" type="text" placeholder="Enter your password">
+                            <button type="button"><i class="fa-solid fa-eye-slash"></i></button>
+                            <br><br><br>
+                        </span>
+                        <!---->
+                        <button id="bottone2">R e g i s t e r</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div> {% endcomment %}
+        <div class="right">
+            <h2>Welcome To POINT</h2>
+            <div class="container">
+                <div class="tabs">
+                    <input type="radio" id="radio-2" name="tabs" onchange="togglesearchBox(false) / togglecheckBox(true)">
+                    <label class="tab" for="radio-2"><b>Login</b></label>
+                    <input type="radio" id="radio-3" name="tabs" onchange="togglesearchBox(true) / togglecheckBox(false)">
+                    <label class="tab" for="radio-3"><b>Register</b></label>
+                    <span class="glider"></span>
+                </div>
+            </div>
+            <h3>Find Your Fantasy.. Get To Your Dream</h3>
+            <!-- Login Form -->
+            <div id="checkBox" class="item">
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                    {% else %}
+                    <p>Please login to see this page.</p>
+                    {% endif %}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="la">
+                        <label>User-name</label>
+                        <br>
+                        <input class="text" type="text" placeholder="Enter your name">
+                        <br><br><br>
+                    </span>
+                    
+                    <span class="la">
+                        <label>Password</label>
+                        <br>
+                        <input class="text" type="password" placeholder="Enter your password">
+                        <button type="button"><i class="fa-solid fa-eye-slash"></i></button>
+                        <br><br><br>
+                    </span>
+                    <label class="material-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="{% url 'password_reset' %}" class="for">Forgot password?</a>
+                    <button id="bottone1" type="submit">Login</button>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="searchBox" class="item1" style="display: none;">
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="la">
+                        <label>Email Address</label>
+                        <br>
+                        <input class="text" type="email" placeholder="Enter your email">
+                        <br><br><br>
+                    </span>
+                    <span class="la">
+                        <label>User-name</label>
+                        <br>
+                        <input class="text" type="text" placeholder="Enter your name">
+                        <br><br><br>
+                    </span>
+                    <span class="la">
+                        <label>Password</label>
+                        <br>
+                        <input class="text" type="password" placeholder="Enter your password">
+                        <br><br><br>
+                    </span>
+                    <button id="bottone2" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

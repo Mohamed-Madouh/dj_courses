@@ -1,40 +1,18 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import profile, UserPhoneNumber, Social_media
+from .models import profile
 
 
 
 
-class SignupForm(UserCreationForm):
-    image = forms.ImageField(label="User Image")
-    department = forms.CharField(label="Department", max_length=50)
-    address = forms.CharField(label="Address", max_length=50)
-    dateofbirthday = forms.DateField(label="Date of Birthday")
 
+class SignUpForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2', 'image', 'department', 'address', 'dateofbirthday')
+        fields = ['username', 'password1', 'password2']
 
 
-class UserPhoneNumberForm(forms.ModelForm):
-    class Meta:
-        model = UserPhoneNumber
-        fields = ('number', 'type')
-
-
-class SocialMediaForm(forms.ModelForm):
-    class Meta:
-        model = Social_media
-        fields = ('facebook', 'githup', 'x', 'linkedin', 'emil')
-class ProfileForm(forms.ModelForm):
-    username = forms.CharField(label="Username")
-    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)
-
-    class Meta:
-        model = profile
-        fields = ('image', 'department', 'address')
 
 
 

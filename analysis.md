@@ -1,33 +1,36 @@
+Section
+  -name
+
 courses
   -rodmapimages
-  titel
-  -catogory
-  -courseimage
-  -coursesname
-  -coursedouctor
-  -doctordev
-  -subtitel
-  -rate
-  -vediourl
-  -urlcours
-catagory 
-  -name 
+  -section (مفتاح خارجي )
+  -is_paid (bool)
   -image
-  -story(paid,free)
+  -name
+  -rate(integar)
+  -doctorname( course_content مفتاح خارجي من جدول)
+
+course_content
+  -doctorname char
+  -department char
+  -subtite text 
+  -doc subtitel text
+  -vediourl url 
+  -urlcourses  url 
+  -image image
+
+
 profile 
   -username
   -secshan
   -email
   -address
   -dateofbirth
-UserPhoneNumber
-  -user(foreigkey)
-  -number
-  -type
-
-media 
   -facbook
   -githap
   -x
   -linkedin
   -emil
+  -number
+
+ 

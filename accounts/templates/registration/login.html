@@ -1,89 +1,37 @@
-{% load static%}.
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
-        <link rel="stylesheet"    href="{% static 'css\login.css' %}">
-    </head>
-    <body>
+{% extends "auth_base.html" %}
+{% block bady %}
+<div  class="right">
+    <h2>Welcome To POINT</h2>
 
 
-    <header class="hd">
-       <ul>
-        <li>sign up</li>
-        <li>help</li>
-        <li>conect us</li>
-        <li>about us</li>
-        
-       </ul>
-    </header>
-    <div class="head1">
-        <h2>
-            WELCOME BACK
-        </h2>
-        <P>Dont Have On Account? <span class="mm"><a href="#">Sign Up</a>
-        </span></P>
-        {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-        {% endif %}
-
-        {% if next %}
-            {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-            please login with an account that has access.</p>
-            {% else %}
-            <p>Please login to see this page.</p>
-            {% endif %}
-        {% endif %}
-    <form class="user-form" method="post" action=" {% url 'login' %}">
-        {% csrf_token %}
-        <div class="shadow">
-            <table>
-            
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
-
-                <tr>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                </tr>
-            
-            </table>
-        
-        <input class="ch" type="checkbox"><span class="op">rememmber</span>
-        <br> 
-        <span class="fo">Forgt password?<a href="{% url 'password_reset' %}">reset here</a></span>
-        <br>
-
-        <button>
-            login
-        </button>
-
-        </div>
-        <div class="footer">
-            <h3>Login With</h3>
-            <div class="icon">
-            <span class="w"><img src="{% static 'images/f.png' %}" alt=""></span>
-            <span class="w"><img src="{% static 'images/g.png' %}" alt=""></span>
-            <span class="e"><img src="{% static 'images/git.png' %}" alt=""></span>
-            <span class="r"><img src="{% static 'images/lin.png' %}" alt=""></span> 
+    <div id="checkBox" class="item">
+        <span class="la">
+                <label>User-name</label>
+                <br>
+            <input class="text" type="text" placeholder="Enter your name ">
+            <br><br><br>
+              <!---->
              
-            </div>
-        </div>
-
+        <span class="la">
+                <label>Password</label>
+                <br>
+                <input class="text" type="text" placeholder="Enter your password">
+                <button type="button"><i class="fa-solid fa-eye-slash"></i></button>
+                <br><br><br>
+              <!---->
+             
+              <label class="material-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Rememebr me
+              </label>
+            <a href="{% url 'password_reset' %}" class="for">forgot password?</a>
+            <button id="bottone1">L o g i n</button>
     </div>
-    <footer class="f">
-        <img src="{% static 'images/POINT1.jpg' %}" alt="" class="fg">
-    </footer>
-    </form>
- 
+</div>
+
+    
 
 
-   
-</body>
 
-</html>
+{% endblock bady %}
