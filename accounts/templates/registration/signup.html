@@ -1,44 +1,61 @@
-{% extends "auth_base.html" %}
-{% block bady %}
-<div  class="right">
-    
-    <h2></h2>
-    <br>
-    <br>
-    <h3></h3>
-    <br>
-    <br>
-    <div  id="searchBox" class="item1">
-        <div class="search-box">
-            <form action="" method="post">
-                <span class="la">
-                    <label>Email Address</label>
-                    <br>
-                    <input class="text" type="text" placeholder="Enter your password">
-                    </div> <br><br>
-                <span class="la">
-                    <label>User-name</label>
-                    <br>
-                    <input class="text" type="text" placeholder="Enter your name ">
-           
-                    <br><br><br>
-              <!---->
-             
-                <span class="la">
-                    <label>Password</label>
-                    <br>
-                    <input class="text" type="text" placeholder="Enter your password">
-                    <button type="button"><i class="fa-solid fa-eye-slash"></i></button>
-              <!---->
-             
-                   <br><br><br>
-           
-                <button id="bottone2">R e g i s t e r</button>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/sigup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css '%} ">
+    <link rel="stylesheet" href="{% static 'path/to/font-awesome/css/font-awesome.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css '%}">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com '%}">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp '%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap '%}">
 
-            </form>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css '%}"><!--الخاص بالايقونات زي علامة الفيس بوك--> 
+</head>
 
 
+
+  
+<body>
+   
+    <nav>
+        
+        <a href=""><img class="img"  src="{% static 'images/logo black.png' %}"></a>
+        <div><h1>POINT </h1>
+            <h4>the easiest way to get to your point</h4>  
         </div>
-    </div>
-</div>
-{% endblock bady %}
+        <img class="img1"  src="{% static 'images/point.jpg' %}" alt="">
+
+        <div class="right">
+            <h2>Welcome To POINT</h2>
+            <div class="container">
+                <div class="tabs">
+                    <input type="radio" id="radio-2" name="tabs" >
+                    <label class="tab" for="radio-2"><a a href= "{% url 'accounts:signuup' %}"><b>Register</b> </a> </label>
+                    <input type="radio" id="radio-3" name="tabs" >
+                    <label class="tab" for="radio-3"><a a href= "{% url 'accounts:login' %}"><b>Login</b></a></label>
+                    <span class="glider"></span>
+                </div>
+            </div>
+            <h3>Find Your Fantasy.. Get To Your Dream</h3>
+            <!-- Signup Form -->
+            <div id="searchBox" class="item1" style="display:block;">
+                <form class="la" action="{% url 'accounts:signuup'  %}"method="post">
+                    {% csrf_token %}
+                    {{form.as_p | }}
+                   
+                    
+
+                        <br><br><br>
+                    </span>
+                    <button class="la" id="bottone2" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

@@ -36,8 +36,8 @@ nav h1,h4
     width: 400px;
     height: 0px;
     position: relative;
-    left: 750px;
-    bottom:565px;
+    left: 1000px;
+    bottom:500px;
     
     padding: 5px;
     
@@ -72,11 +72,11 @@ h3{
   .tabs * {
     z-index: 2;
   }
-  
+   
   .container input[type="radio"] {
     display: none;
-  }
-  
+  } 
+   
   .tab {
     display: flex;
     align-items: center;
@@ -94,22 +94,22 @@ h3{
   }
   
   
-  .container input[type="radio"]:checked + label {
+  /* .container input[type="radio"]:checked + label {
     color: #ffffff;
     
-  }
+  } */
   
   
   
-  .container input[id="radio-2"]:checked ~ .glider {
+  /* .container input[id="radio-2"]:checked ~ .glider {
     transform: translateX(0%);
     
-  }
+  } */
   
-  .container input[id="radio-3"]:checked ~ .glider {
+  /* .container input[id="radio-3"]:checked ~ .glider {
     transform: translateX(100%);
     
-  }
+  } */
   
   .glider {
     position: absolute;

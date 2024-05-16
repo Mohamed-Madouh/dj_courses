@@ -5,10 +5,9 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 class profile(models.Model):
-    user=models.OneToOneField(User, related_name='user_profile',verbose_name="user_profile", on_delete=models.CASCADE)
+    user=models.OneToOneField(User, related_name='profile',verbose_name="user_profile", on_delete=models.CASCADE)
     image = models.ImageField(upload_to='users/',verbose_name="user image")
     department=models.CharField(_("Department"), max_length=50)
-    address=models.CharField(_("adress"),max_length=50)
     facebook=models.URLField(_("facebook"), null= True ,blank= True)
     githup=models.URLField(_("githup"), null= True ,blank= True)
     x=models.URLField(_("x"), null= True ,blank= True)

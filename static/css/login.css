@@ -277,7 +277,7 @@ input {
     
   }
    
-  .container input[id="radio-2"]:checked ~ .glider {
+  /* .container input[id="radio-2"]:checked ~ .glider {
     transform: translateX(0%);
     
   }
@@ -286,7 +286,7 @@ input {
     transform: translateX(100%);
     
   }
-  
+   */
   .glider {
     position: absolute;
     display: flex;
@@ -456,16 +456,16 @@ h3{
     position: relative;
     
   }
-   
+/*    
   .container input[id="radio-2"]:checked ~ .glider {
     transform: translateX(0%);
-    
-  }
+     */
+  /* } */
   
-  .container input[id="radio-3"]:checked ~ .glider {
+  /* .container input[id="radio-3"]:checked ~ .glider {
     transform: translateX(100%);
     
-  }
+  } */
   
   .glider {
     position: absolute;
@@ -603,7 +603,7 @@ h3{
       position: relative;
       
     }
-     
+/*      
     .container input[id="radio-2"]:checked ~ .glider {
       transform: translateX(0%);
       
@@ -613,7 +613,7 @@ h3{
       transform: translateX(100%);
       
     }
-    
+     */
     .glider {
       position: absolute;
       display: flex;
