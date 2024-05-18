@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect"href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><!--الخاص بالايقونات زي علامة الفيس بوك--> 
+    <link rel="stylesheet" href="shokry.css">
+    <link rel="stylesheet" href="shokry.js">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="aaa2.css">
+    <script src="main.js" defer></script>
+    <title>Home</title>
+</head>
+<body>
+    
+<script>
+    function toggleDarkMode() {
+      var body = document.body;
+      var modeIcon = document.getElementById("mode-icon");
+      
+      body.classList.toggle("dark-mode");
+      
+      // Toggle icon between moon and sun
+      if (body.classList.contains("dark-mode")) {
+        modeIcon.classList.remove("fa-moon");
+        modeIcon.classList.add("fa-sun");
+      } else {
+        modeIcon.classList.remove("fa-sun");
+        modeIcon.classList.add("fa-moon");
+      }
+    }
+    </script>
+    
+  <script>
+    function toggleNotificationMenu() {
+      var menu = document.getElementById("notificationMenu");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+    
+    // Close the notification menu if clicked outside of it
+    window.onclick = function(event) {
+      var menu = document.getElementById("notificationMenu");
+      if (event.target !== menu && !event.target.closest('.notification-icon')) {
+        menu.style.display = "none";
+      }
+    }
+    </script>
+    
+  <script>
+    var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    var isRecording = false;
+    
+    function toggleRecording() {
+      if (!isRecording) {
+        startRecording();
+      } else {
+        stopRecording();
+      }
+    }
+    
+    function startRecording() {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function(stream) {
+          var mediaRecorder = new MediaRecorder(stream);
+          var chunks = [];
+    
+          mediaRecorder.ondataavailable = function(event) {
+            chunks.push(event.data);
+          }
+    
+          mediaRecorder.onstop = function() {
+            var blob = new Blob(chunks, { type: 'audio/wav' });
+            var audioURL = window.URL.createObjectURL(blob);
+            var audio = new Audio(audioURL);
+            audio.play();
+          }
+    
+          mediaRecorder.start();
+          isRecording = true;
+        })
+        .catch(function(error) {
+          console.error('Error accessing microphone:', error);
+        });
+    }
+    
+    function stopRecording() {
+      isRecording = false;
+    }
+    </script>
+    <script>
+       function scrollToTop() {
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+      });
+  }
+  
+  window.addEventListener("scroll", function() {
+      var backToTopBtn = document.getElementById("backToTopBtn");
+      if (document.body.scrollTop > 20 
+      || document.documentElement.scrollTop > 20) {
+          backToTopBtn.style.display = "block";
+      } else {
+          backToTopBtn.style.display = "none";
+      }
+  });
+    </script>
+  <body>
+  
+    
+   
+  
+      <nav>
+        <a href="#"><img  id="img" src="images/logo black.png"></a>
+        <div class="input-box col-4" >
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search for more courses" />
+            <button type="button"><i class="fas fa-search"></i></button>
+            <button type="submit"><i onclick="toggleRecording()"class="fas fa-microphone"></i></button>
+          </div>
+        </div>
+          <div  class="nav-links"  id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul >
+                <li><b><a  href="#home">HOME</b></a></li>
+                <li><b><a href="#Roadmaps">ROADMAPS</b></a></li>
+                <li><b><a href="#overview"></b></a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <i class="fa-solid fa-bars-staggered" onclick="showMenu()"></i>
+          <div class="social-icons col-2.5" >
+            <div class="container">
+    
+            <a><div id="dark-mode-toggle" onclick="toggleDarkMode()">
+            <i id="mode-icon" class="fas fa-moon"></i></div></a>
+            <a >  <i class="fas fa-bell notification-icon" onclick="toggleNotificationMenu()">
+              <span class="notification-badge"></span>
+            </i></a> 
+            <div class="notification-Menu" id="notificationMenu">
+              <ul>
+               <li><a href="#">update!!</a></li>
+                <li><a href="#">new_courses!!</a></li>
+                <li><a href="#">sign_up_now!!</a></li>
+              </ul>
+            </div>
+            <a ><i  class="fas fa-user-circle"></i></a> 
+        </div>
+      </div>
+      </nav>
+     
+
+    <section>
+        <div class="container">
+            <div class="slider-wrapper">
+              <button id="prev-slide" class="slide-button material-icons">
+                chevron_left
+              </button>
+              <ul class="image-list">
+                <img class="image-item" src="20240304_230505_٠٠٠٠.png.png" alt="img-1" />
+                <img class="image-item" src="1 (16).jpg" alt="img-2" />
+                <img class="image-item" src="img/1 (20).jpg" alt="img-3" />
+                <img class="image-item" src="img/1 (7).jpg" alt="img-4" />
+                <img class="image-item" src="html3.jpg" alt="img-5" />
+                <img class="image-item" src="img/css2.jpg" alt="img-6" />
+                <img class="image-item" src="img/java script 2.jpg" alt="img-7" />
+                <img class="image-item" src="img/php.jpg" alt="img-8" />
+                <img class="image-item" src="img/java.jpg" alt="img-9" />
+                <img class="image-item" src="img/java script 10.jpg" alt="img-10" />
+                
+              </ul>
+              <button id="next-slide" class="slide-button material-icons">
+                chevron_right
+              </button>
+            </div>
+            <div class="slider-scrollbar">
+              <div class="scrollbar-track">
+                <div class="scrollbar-thumb"></div>
+              </div>
+            </div>
+          </div>     
+    </section>
+
+    <div class="content-area">
+        <h2 class="title">Recommend For You</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/Java Script5.jpg"/>
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/Java5.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php6.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css6.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html5.jpg"/>
+                        
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+    <div class="content-area">
+        <h2 class="title">HTML</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html4.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html4.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html3.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/html2.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+    <div class="content-area">
+        <h2 class="title">CSS</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css3.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css7.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css11.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css9.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css12.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+    <div class="content-area">
+        <h2 class="title">CSS</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css8.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css2.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css4.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css10.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/css5.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+
+    <div class="content-area">
+        <h2 class="title">Java script</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/Java Script6.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/ja.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script 10.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                          
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script7.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script8.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+  
+
+    <div class="content-area">
+        <h2 class="title">Java script</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script 4.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+  
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script 3.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script 2.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java script11.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+
+
+    <div class="content-area">
+        <h2 class="title">Php</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php3.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php1.jpg"/>
+                        
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php6.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/php4.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+
+
+    <div class="content-area">
+        <h2 class="title">Java</h2>
+        <main>
+            <div class="videos-container">
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/Java4.jpg"/>
+                        
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java6.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                          
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java2.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java3.jpg"/>
+                        
+
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                            
+                            <div class="cotn">
+                            <span class="fa fa-star fa-x checked"></span>
+                            <span class="fa fa-star fa-x checked"></span>
+                            <span class="fa fa-star fa-x checked"></span>
+                            <span class="fa fa-star fa-x checked"></span>
+                            <span class="fa fa-star fa-x checked"></span>
+                            <span class="fa fa-star fa-x ">5.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <div class="thumbnail"> 
+                        <img src="img/java.jpg"/>
+                    
+                    </div>
+                    
+                    <div class="video-detils">
+                      
+                        <div class="title">
+                            <a href="" class="video-title">
+                                The Complete Dart Development Guide
+
+                            </a>
+                            <a href="" class="video-creator">
+                                3alm SemSem
+
+                            </a>
+                           
+                            <div class="cotn">
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x checked"></span>
+                                <span class="fa fa-star fa-x ">5.6</span>
+                                </div>
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+               
+         
+                
+        </main>
+    </div>
+        
+    <footer>
+    <div id="snippetContent"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+  <footer class="bg-dark-gradient footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-border-bottom pb-0 mb-0">
+          <div class="row">
+            <div class="col-lg-2 col-xl-1">
+              <a href=""><img src="images/logo white.png"></a>
+              <h4 class="text-white">
+                point
+              </h4>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-3 my-4">
+          <h5 class="text-white h mb-4">ABOUT US</h5>
+        <div class="text-white-65 mb-4 text-white">We aim through this project to reach the greatest possible benefit from the educational content available online, and facilitate the process of learning without obstacles
+      </div>
+      <h6 class=" h mb-4">contact us</h6>
+          <div class="nav footer-socila-icon">
+  <a href="#"> <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="#"> <i class="fab fa-twitter"></i>
+  </a>
+  <a href="#"><i class="fab fa-instagram"></i>
+  </a>
+  <a href="#"><i class="fab fa-linkedin-in"></i>
+  </a>
+  </div>
+  </div>
+  <div class="col-sm-6 col-lg-2 my-4">
+    <h5 class="text-white h mb-4">Customer</h5>
+    <ul class="list-unstyled white-link footer-links">
+    <li>
+    <a href="#">Get Corpo</a>
+    </li>
+    <li>
+      <a href="#">Documentation</a>
+    </li>
+    <li>
+      <a href="#">Help center</a>
+    </li>
+  <li>
+  <a href="#">Pricing</a>
+  </li>
+  <li>
+  <a href="#">Contact us</a>
+  </li>
+  </ul>
+  </div>
+  <div class="col-sm-5 col-lg-2 my-4">
+      <h5 class="text-white h mb-4">Product</h5>
+      <ul class="list-unstyled white-link footer-links">
+          <li>
+              <a href="#">Portfolio</a>
+          </li>
+          <li>
+              <a href="#">Blog</a>
+          </li>
+          <li>
+              <a href="#">Join our team</a>
+          </li>
+          <li>
+              <a href="#">Elements</a>
+          </li>
+          <li>
+              <a href="#">Products</a>
+          </li>
+      </ul>
+  </div>
+  <div class="col-sm-6 col-lg-2 my-4">
+      <h5 class="text-white h mb-4">Company</h5>
+      <ul class="list-unstyled white-link footer-links">
+          <li>
+              <a href="#">About</a>
+          </li>
+          <li>
+              <a href="#">Careers</a>
+          </li>
+          <li>
+              <a href="#">Legal &amp; Security</a>
+          </li>
+          <li>
+              <a href="#">Terms of use</a>
+          </li>
+          <li>
+              <a href="#">We're hiring!</a>
+          </li>
+      </ul>
+  </div>
+  <div class="col-sm-7 col-lg-3 my-4">
+    <h5 class="text-white h mb-4">team work</h5>
+    <div class="white-link">
+        <div class="d-flex pb-4">
+          
+              <div class="text-white-65 mb-4 text-white"><li>team leader: mohamed mamdouh<li>
+  head of UI/UX design: karim badran<li>
+  head of analyses: el-sayed alaa<li>
+  head of front-End: mostafa Shokey<li>
+  head of front-End: mohmad amer<li>
+  head of back-end: mohamed mamdouh</div>
+            </div>
+          </dIV>
+        </div>
+    </div>
+  </div>
+  </div> 
+  
+  </footer>
+  
+  <script>
+    var navLinks = document.getElementById("navLinks"); 
+    function showMenu(){ 
+    navLinks.style.right = "0"; 
+    
+    } 
+    function hideMenu(){
+    navLinks.style.right = "-200px";
+    
+    } 
+    </script> 
+       <button id="backToTopBtn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+  
+</body>
+</html>
