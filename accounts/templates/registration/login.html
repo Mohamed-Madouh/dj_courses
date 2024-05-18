@@ -43,21 +43,9 @@
             </div>
             <h3>Find Your Fantasy.. Get To Your Dream</h3>
             <div id="checkBox" class="item">
-                {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
-  
-                {% if next %}
-                    {% if user.is_authenticated %}
-                    <p>Your account doesn't have access to this page. To proceed,
-                    please login with an account that has access.</p>
-                    {% else %}
-                    <p>Please login to see this page.</p>
-                    {% endif %}
-                {% endif %}
-                <form class="la" method="post">
+                <form method="post" class="la" >
                     {% csrf_token %}
-                    {{form}}
+                    {{form.as_p}}
                     <h4></h4>
                     <h3></h3>
                     <label class="material-checkbox">

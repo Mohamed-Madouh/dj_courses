@@ -1,104 +1,107 @@
 {% extends "hader-fotar.html" %}
-{% load static %}
-{% load i18n %}
 {% block bady %}
+{% load static %}
 {% block myhome %}
-<link rel="stylesheet" href="{% static 'p1.css' %}">
-<link rel="stylesheet" href="{% static 'style1.css' %}">
-<link rel="stylesheet" href="{% static 'style11.css' %}">
-{% endblock mmyhomey %}
-  
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+<link rel="stylesheet" href="{% static 'css/p1.css' %}">
+<link rel="stylesheet" href="{% static 'css/style11.css' %}">
+{% endblock myhome %}
 <section>
     <div class="container">
-     <div class="left">
-        <a href="###"> <img src="images/edit-button.png" alt="" class="img1"> </a>
-       <img src="images/Ellipse 7.png" alt="" class="img2">
-       <br>
+        <div class="left">
+            <a href="{% url 'accounts:update_profile' %}"> <img src="{% static 'images/edit-button.png' %}" alt="" class="img1"> </a>
+            <img src= "{{profile.image.url}}" alt="" class="img2">
+            <br>
+            <h12 >{{ profile.user.username }}</h12>
+            <br>
+            <h13>{{ profile.department }}</h13>
 
-       <h12>Karim Hamed</h12>
-       <br>
-       <h13>Web Developer</h13>
+            <br> 
+            <p> <a href="{% url 'accounts:update_profile' %}" class="s"> Enter security Center</a> </p> 
+            <a href="{% url 'accounts:update_profile' %}"> <img src="{% static 'images/setting.png' %}" alt="" class="img3"></a>
 
-       <br> 
-       <p> <a href="###" class="s"> Enter security Center</a> </p> 
-        <a href="###"> <img src="images/setting.png" alt="" class="img3"></a>
+        </div>
 
-   </div>
-
-   <br>
-   <div class="link">
-     <hr>
-       <img src="images/facebook.png" alt="" class="face">
-       <span> <a href="https://www.facebook.com/?locale=ar_AR"class="ss"> @kareem Hamed</a> </span>
-       <hr>
-       <img src="images/github (1).png" alt="" class="git">
-       <span> <a href="https://github.com/" class="ss"> @kareem Hamed</a> </span>
-       <hr>
+        <br>
+        <div class="link">
+            <hr>
+            <img src="{% static 'images/facebook.png' %}" alt="" class="face">
+            <span> <a href="{{ profile.facebook }}" class="ss" >@{{ profile.user.username }}</a></p>
+            <hr>
+            <img src="{% static 'images/github (1).png' %}" alt="" class="git">
+            <span> <a href="{{ profile.github }}" class="ss">@{{ profile.user.username }}</a> </span>
+            <hr>
        
-       <img src="images/search.png" alt="" class="google">
-       <span> <a href="https://google.com/" class="ss" > @kareem Hamed</a> </span>
-       <hr>
+            <img src="{% static 'images/search.png' %}" alt="" class="google">
+            <span> <a href="{{ profile.email }}" class="ss">@{{ profile.user.username }}</a> </span>
+            <hr>
        
-       <img src="images/twitter (1).png" alt="" class="x ">
-       <span> <a href="https://twitter.com/" class="ss" > @kareem Hamed</a> </span>
-       <hr>
+            <img src="{% static 'images/twitter (1).png' %}" alt="" class="x ">
+            <span> <a href="{{ profile.x }}" class="ss" >@{{ profile.user.username }}</a> </span>
+            <hr>
        
-       <img src="images/linkedin.png" alt="" class="linkedin">
-       <span> <a href="https://linkedin.com/" class="ss"> @kareem Hamed</a> </span>
+            <img src="{% static 'images/linkedin.png' %}" alt="" class="linkedin">
+            <span> <a href="{{ profile.linkedin }}" class="ss">@{{ profile.user.username }}</a> </span>
+        </div>       
+        <div class="right">
+            <h11>Personal Information</h11>
+            <div class="item">
+
+                <a href="{% url 'accounts:update_profile' %}"> <img src="{% static 'images/edit-button.png' %}" alt="" class="right1"></a>
+                <br>
+                <!---->
+                <i class="fas fa-user"></i>
+                <span class="la">
+
+                    <label>Full Name</label>
+                    <br>
+                    {{ profile.user.username }}
+                    <!---->
+                    <br><br><br>
+                </span>
+           
+                <i class=" fas fa-envelope"></i>
+                <span class="la">
+                    <label>Email</label>
+                    <br>
+                    {{profile.emil}}
+                    <br><br><br>
+                </span>
+                <!---->
+                <i class=" fas fa-phone"></i>
+                <span class="la">
+                    <label>Mobile</label>
+                    <br>
+                    {{profile.number}}
+                    <br><br><br>
+                </span>
+                <!---->
+                <i class=" fas fa-location-dot"></i>
+                <span class="la">
+                    <label>Address</label>
+                    <br>
+                    {{profile.Address}}
+                    <br><br><br>
+                </span>
+                <!---->
+                 <i class=" fas fa-calendar-days"></i>
+                <span class="la">
+                    <label>Date Of Birth</label>
+                    <br>
+                    {{profile.DateOfBirth}}
+                    <br>
+                 </span>
 
        
-   
-   </div>
-   <div class="right">
-     
-       <h11>Personal Information</h11>
-       <div class="item">
-       <img src="images/edit-button.png" alt="" class="right1">
-       <br>
-         <!---->
-         <i class="fas fa-user"></i>
-       <span class="la">
-           <label>Full Name</label>
-           <br>
-           <input type="text" placeholder="  enter your name">
-        <!---->
-        <br><br><br>
-           <i class=" fas fa-envelope"></i>
-           <span class="la">
-               <label>Email</label>
-               <br>
-               <input type="text" placeholder="  enter your email">
-               <br><br><br>
-            <!---->
-            <i class=" fas fa-phone"></i>
-       <span class="la">
-               <label>Mobile</label>
-               <br>
-           <input type="text" placeholder="  enter your phone">
-           <br><br><br>
-             <!---->
-             <i class=" fas fa-location-dot"></i>
-       <span class="la">
-               <label>Address</label>
-               <br>
-           <input type="text" placeholder="  enter your Address">
-           <br><br><br>
-             <!---->
-             <i class=" fas fa-calendar-days"></i>
-           <span class="la">
-               <label>Date Of Birth</label>
-               <br>
-               <input type="date" placeholder="">
-               <br>
-
-       </span>
-     </div>
-   </div>
-   <br>
-   </div>
-   <div>
+            </div>
+        </div>
+    
+    </div>
+    <div>
      <br>
-   </div>
-      </div>
-       </section> 
+    </div>
+</section> 
 {% endblock bady %}
+
+
+

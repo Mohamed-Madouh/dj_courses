@@ -31,6 +31,6 @@ class course_content(models.Model):
     subtitell=models.TextField(_("doc"),max_length=300,null=True,blank=True)
     vediourl=models.URLField(null=True,blank=True)
     urlcourses=models.URLField(null=True)
-    image = models.ImageField(_("userimage"),upload_to='doctor_image' ,default=1 )
+    image = models.ImageField(_("userimage"),upload_to='doctor_image' ,default="midia/doc.jpeg" )
     def __str__(self):
         return self.doctorname

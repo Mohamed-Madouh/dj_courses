@@ -124,7 +124,7 @@ window.addEventListener("scroll", function() {
   
 <section class="header">
   <nav>
-    <a href="http://127.0.0.1:8000/courses/"><img  id="img" src="{% static 'images/logo black.png' %}"></a>
+    <a href="{% url 'courses:home-page' %}"><img  id="img" src="{% static 'images/logo black.png' %}"></a>
     <div class="input-box col-4" >
         <i class="uil uil-search"></i>
         <input type="text" placeholder="Search for more courses" />
@@ -135,7 +135,7 @@ window.addEventListener("scroll", function() {
       <div  class="nav-links"  id="navLinks">
         <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul >
-            <li><b><a class="#" href="http://127.0.0.1:8000/courses/">HOME</b></a></li>
+            <li><b><a class="{% url 'courses:home-page' %}" href="">HOME</b></a></li>
             <li><b><a href="https://roadmap.sh/ai">Roadmaps</b></a></li>
 
         </ul>
@@ -158,7 +158,7 @@ window.addEventListener("scroll", function() {
             <li><a href="#">sign_up_now!!</a></li>
           </ul>
         </div>
-        <a href="#"><i  class="fas fa-user-circle"></i></a>
+        <a href="{% url 'accountsprofile.html'"><i class="fas fa-user-circle"></i></a>
         
     </div>
      
@@ -180,7 +180,7 @@ window.addEventListener("scroll", function() {
         <div class="footer-border-bottom pb-0 mb-0">
           <div class="row">
             <div class="col-lg-2 col-xl-1">
-              <a href="http://127.0.0.1:8000/courses/"><img src=" {% static 'images/logo white.png' %}"></a>
+              <a href="{% url 'courses:home-page' %}"><img src=" {% static 'images/logo white.png' %}"></a>
               <h4 class="text-white">
                 point
               </h4>

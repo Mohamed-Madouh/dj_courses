@@ -31,7 +31,9 @@ nav h1,h4
     padding: 0px;
     border-radius: 4%;
 }
-
+a.m{
+  color: white;
+}
 .right{
     width: 400px;
     height: 0px;
