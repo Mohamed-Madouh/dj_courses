@@ -1,17 +1,26 @@
-{% extends "base.html" %}
+{% extends "hader-fotar.html" %}
 {% block bady %}
 
 
+</section> 
 <section class="text-box">
-    <div class="container1">
-      <h1> </h1>
-      <p>
-        <iframe width="1000" height="700" src="{{ course.vediourl }}" frameborder="0" allowfullscreen></iframe>
+  <div class="container1">
+    <h1> </h1>
+    {% if course.videourl %}
+    <!-- <p><iframe controls width="1000" height="700" src="{{ course.vediourl }}" frameborder="0" allowfullscreen></iframe> -->
+      <p><video width="1000" height="700" controls>
+      <source src="{{course.vediourl}}" type="video/mp4">
+    </video> 
+    {% else %}
+    <p>No video available.</p>
+    {% endif %}
 
-
-      </p>
-    </div>
-</section>
+    <!--
+    </p>
+    <a href="" class="hero-btn"> To know More courses </a>
+  --></div>
+  </section>
+        <!-- <iframe controls width="1000" height="700" src="{{ course.vediourl }}" frameborder="0" allowfullscreen></iframe> -->
 
  
     <main id="overview">

@@ -33,18 +33,6 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 class UpdateUserform(forms.ModelForm):
     username=forms.CharField(max_length=100,required=True,widget=forms.TextInput(attrs={'calss':'form-control'}))
     email=forms.EmailField(required=True, widget=forms.TextInput(attrs={'class':'form-control'}))

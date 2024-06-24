@@ -33,6 +33,8 @@ nav h1,h4
 }
 a.m{
   color: white;
+  text-decoration: none;
+
 }
 .right{
     width: 400px;

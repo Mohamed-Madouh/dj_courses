@@ -197,7 +197,7 @@ font-size: 23px;
             font-size: 15px;
             align-items: center;
           }
-          .container1 video{
+          .container1 iframe{
             width: 250px;
             height: 150px;
            
@@ -262,7 +262,7 @@ font-size: 23px;
       }
 
       @media  (max-width: 850px){
-        .container1 video{
+        .container1 iframe{
          width: 600px;
          height: 350px;
        }
@@ -270,7 +270,7 @@ font-size: 23px;
      }
      
      @media  (max-width: 710px){
-       .container1 video{
+       .container1 iframe{
         width: 500px;
         height: 300px;
       }
@@ -309,7 +309,7 @@ font-size: 23px;
          }
        }
        @media (max-width: 590px) {
-         .container1 video{
+         .container1 iframe{
            width: 400px;
            height: 250px;
            
@@ -319,7 +319,7 @@ font-size: 23px;
          }
      }
      @media (max-width: 480px) {
-       .container1 video{
+       .container1 iframe{
          width: 350px;
          height: 200px;
        }
@@ -328,7 +328,7 @@ font-size: 23px;
        }
        }
        @media (max-width: 380px) {
-         .container1 video{
+         .container1 iframe{
            width: 300px;
            height: 200px;
          }
@@ -337,7 +337,7 @@ font-size: 23px;
          }
          }
          @media (max-width: 350px) {
-           .container1 video{
+           .container1 iframe{
              width: 250px;
              height: 150px;
            }

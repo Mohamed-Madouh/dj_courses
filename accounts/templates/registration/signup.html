@@ -35,9 +35,9 @@
             <div class="container">
                 <div class="tabs">
                     <input type="radio" id="radio-2" name="tabs" >
-                    <label class="tab" for="radio-2"><a href= "{% url 'accounts:signuup' %}"class="m"><b>Register</b> </a> </label>
+                    <label class="tab" for="radio-2"><a class = "m" href= "{% url 'accounts:signuup' %}"class="m"><b>Register</b> </a> </label>
                     <input type="radio" id="radio-3" name="tabs" >
-                    <label class="tab" for="radio-3"><a href= "{% url 'login' %}" class="m"><b>Login</b></a></label>
+                    <label class="tab" for="radio-3"><a class = "m" href= "{% url 'login' %}" class="m"><b>Login</b></a></label>
                     <span class="glider"></span>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     {{form.as_p  }}
                         <br><br><br>
                     </span>
-                    <button class="la" id="bottone2" type="submit">Register</button>
+                    <button class="la" id="bottone2" type="submit"><a class = "m" href="{% url 'courses:home-page' %}"> Register</a></button>
                 </form>
             </div>
         </div>

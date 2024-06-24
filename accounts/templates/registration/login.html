@@ -35,9 +35,9 @@
             <div class="container">
                 <div class="tabs">
                     <input type="radio" id="radio-2" name="tabs">
-                    <label class="tab" for="radio-2"><a a href= ""><b>Login</b></a></label>
+                    <label class="tab" for="radio-2"><a a href= "#" class = "m"><b>Login</b></a></label>
                     <input type="radio" id="radio-3" name="tabs" >
-                    <label class="tab" for="radio-3"><a a href= "{% url 'accounts:signuup' %}"><b>Register</b> </a> </label>
+                    <label class="tab" for="radio-3"><a a href= "{% url 'accounts:signuup' %}" class = "m"> <b>Register</b> </a> </label>
                     <span class="glider"></span>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                         Remember me
                     </label>
                     <a href="{% url 'password_reset' %}" class="for">Forgot password?</a>
-                    <button id="bottone1" type="submit">Login</button>
+                    <button id="bottone1" type="submit"><a class = "m" href="{% url 'courses:home-page' %}">Login</a></button>
                 </form>
             </div>
   
